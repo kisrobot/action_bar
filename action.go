@@ -5,8 +5,8 @@ import (
 	"html/template"
 	"strings"
 
-	"github.com/qor/admin"
-	"github.com/qor/qor/utils"
+	"github.com/kisrobot/admin"
+	"github.com/kisrobot/qor/utils"
 )
 
 type ActionInterface interface {

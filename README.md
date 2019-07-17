@@ -1,22 +1,22 @@
 # ActionBar
 
-[ActionBar](https://github.com/qor/action_bar) is an auxiliary UI plug-in for [QOR Admin](https://github.com/qor/admin). It generates a small bar on the top of frontend pages. The bar contains:
+[ActionBar](https://github.com/kisrobot/action_bar) is an auxiliary UI plug-in for [QOR Admin](https://github.com/kisrobot/admin). It generates a small bar on the top of frontend pages. The bar contains:
 
 * Switcher of `Preview` and `Edit` mode,
 * Login/Logout links,
-* Additional links according to [QOR Admin](https://github.com/qor/admin) configuration.
+* Additional links according to [QOR Admin](https://github.com/kisrobot/admin) configuration.
 
-[![GoDoc](https://godoc.org/github.com/qor/action_bar?status.svg)](https://godoc.org/github.com/qor/action_bar)
+[![GoDoc](https://godoc.org/github.com/kisrobot/action_bar?status.svg)](https://godoc.org/github.com/kisrobot/action_bar)
 
 ## Usage
 
-Register [ActionBar](https://github.com/qor/action_bar) to [QOR Admin](https://github.com/qor/admin)
+Register [ActionBar](https://github.com/kisrobot/action_bar) to [QOR Admin](https://github.com/kisrobot/admin)
 
 ```go
   ActionBar = action_bar.New(Admin)
 ```
 
-Then render [ActionBar](https://github.com/qor/action_bar) in the view, usually we put it in the view context.
+Then render [ActionBar](https://github.com/kisrobot/action_bar) in the view, usually we put it in the view context.
 
 ```go
 viewCtx["ActionBarTag"] = admin.ActionBar.Render(ctx.Writer, ctx.Request)
@@ -27,9 +27,9 @@ viewCtx["ActionBarTag"] = admin.ActionBar.Render(ctx.Writer, ctx.Request)
 
 ## Advanced usages
 
-### Add link to [ActionBar](https://github.com/qor/action_bar)
+### Add link to [ActionBar](https://github.com/kisrobot/action_bar)
 
-[ActionBar](https://github.com/qor/action_bar) has a `RegisterAction` function to do so. Here's an example that adds admin link to [ActionBar](https://github.com/qor/action_bar).
+[ActionBar](https://github.com/kisrobot/action_bar) has a `RegisterAction` function to do so. Here's an example that adds admin link to [ActionBar](https://github.com/kisrobot/action_bar).
 
 ```go
 ActionBar.RegisterAction(&action_bar.Action{Name: "Admin Dashboard", Link: "/admin"})
@@ -37,9 +37,9 @@ ActionBar.RegisterAction(&action_bar.Action{Name: "Admin Dashboard", Link: "/adm
 
 ### Be able to edit resource in the front-end directly.
 
-Imagine the administrator of a EC site could edit a product detail in the shopping page rather than edit it in the back-end CMS. The shopping page editing could help the administrator to have a better operation experience. We have integrated this feature to [ActionBar](https://github.com/qor/action_bar). The setup is easy.
+Imagine the administrator of a EC site could edit a product detail in the shopping page rather than edit it in the back-end CMS. The shopping page editing could help the administrator to have a better operation experience. We have integrated this feature to [ActionBar](https://github.com/kisrobot/action_bar). The setup is easy.
 
-First, register view functions. The example uses [Render](https://github.com/qor/render) to render the template. So we register functions by `Render.RegisterFuncMap`. The `admin.ActionBar` in the example is an instance of [QOR Admin](https://github.com/qor/admin).
+First, register view functions. The example uses [Render](https://github.com/kisrobot/render) to render the template. So we register functions by `Render.RegisterFuncMap`. The `admin.ActionBar` in the example is an instance of [QOR Admin](https://github.com/kisrobot/admin).
 
 ```go
 for key, value := range admin.ActionBar.FuncMap(ctx.Writer, ctx.Request) {
